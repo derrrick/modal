@@ -1,0 +1,82 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-employee">
+        <div class="modal-content">
+            <div class="modal-header add-empl">
+                <a class="close-out" ng-click="cancelAddEmployee()"><i class="flaticon solid x-1"></i></a>
+                <div class="modal-avatar">
+                    <a href=""><img src="img/add-image.svg" class="img-circle"/></a>
+                </div>
+                <div class="modal-details">
+                    <ul class="list-unstyled">
+                        <li>Add New Employee</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-body add-empl">
+                <form class="form-horizontal" role="form" name="empAddForm" novalidate>
+                    <div class="form-group" ng-class="{ 'has-error' : empAddForm.FirstName.$invalid && addSubmitted }">
+                        <label for="inputFirstName" class="col-sm-4 control-label">First Name:</label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputFirstName" name="FirstName" ng-model="NewEmp.first_name" placeholder="First Name" required>
+                            <p ng-show="empAddForm.FirstName.$invalid && addSubmitted" class="help-block">First name is required.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : empAddForm.LastName.$invalid && addSubmitted }">
+                        <label for="inputLastName" class="col-sm-4 control-label">Last Name:</label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputLastName" name="LastName" ng-model="NewEmp.last_name" placeholder="Last Name" required>
+                            <p ng-show="empAddForm.LastName.$invalid && addSubmitted" class="help-block">Last name is required.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : empAddForm.Email.$invalid && addSubmitted }">
+                        <label for="inputEmail" class="col-sm-4 control-label">Email Address:</label>
+
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="inputEmail" name="Email" ng-model="NewEmp.email" placeholder="Email" required>
+                            <p ng-show="empAddForm.Email.$error.required && addSubmitted" class="help-block">Email is required.</p>
+                            <p ng-show="empAddForm.Email.$error.email && addSubmitted" class="help-block">Please enter a valid Email.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : empAddForm.Phone.$invalid && addSubmitted }">
+                        <label for="inputPhone" class="col-sm-4 control-label">Phone Number:</label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputPhone" name="Phone" ng-model="NewEmp.phone_number" placeholder="Phone" required>
+                            <p ng-show="empAddForm.Phone.$invalid && addSubmitted" class="help-block">Phone number is required.</p>
+                        </div>
+                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<label for="inputDepartment" class="col-sm-4 control-label">Department:</label>-->
+
+                        <!--<div class="col-sm-8">-->
+                            <!--<select class="form-control" id="inputDepartment">-->
+                                <!--<option>Marketing</option>-->
+                                <!--<option>Assistant</option>-->
+                                <!--<option>Research</option>-->
+                                <!--<option>Finance</option>-->
+                                <!--<option>Accounting</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="inputTimeZone" class="col-sm-4 control-label">Time Zone:</label>-->
+
+                        <!--<div class="col-sm-8">-->
+                            <!--<select class="form-control" id="inputTimeZone">-->
+                                <!--<option>Eastern Standard</option>-->
+                                <!--<option>Mountain Standard</option>-->
+                                <!--<option>Pacific Standard</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </form>
+                <hr/>
+            </div>
+            <div class="modal-footer add-empl">
+                <button ng-click="saveNewEmployee(empAddForm.$valid)" class="btn btn-med btn-blue">Add New</button>
+            </div>
+        </div>
+    </div>
+</div>

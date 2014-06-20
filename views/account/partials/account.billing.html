@@ -1,0 +1,97 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6">
+    			<h2>Company Info</h2>
+
+
+    			<h2>Billing Information</h2>
+    </div>
+    <div class="col-xs-6">
+        <div class="container--ccard">
+            <p>Add Payment Information</p>
+            <p>xxxx-xxxx-xxxx-xxxx</p>
+            <a class="btn btn-default" ng-click="addPayment=true">Add Payment</a>
+        </div>
+    </div>
+  </div>
+  <!-- ./row -->
+</div>
+<!-- ./container -->
+
+<div id="#addPayment" ng-show="addPayment">
+  <div class="lite-pane-wrap">
+    <div class="lite-pane downscroll">
+      <form role="form">
+<!--         <div class="form-group">
+          <label for="">Card Number</label>
+          <input type="text" class="form-control" placeholder="Card number">
+        </div>
+        <div class="form-group">
+        	<label for="">Expiration Date</label>
+        	<select class="form-control">
+					  <option></option>
+            <option value="01">Jan (01)</option>
+            <option value="02">Feb (02)</option>
+            <option value="03">Mar (03)</option>
+            <option value="04">Apr (04)</option>
+            <option value="05">May (05)</option>
+            <option value="06">June (06)</option>
+            <option value="07">July (07)</option>
+            <option value="08">Aug (08)</option>
+            <option value="09">Sep (09)</option>
+            <option value="10">Oct (10)</option>
+            <option value="11">Nov (11)</option>
+            <option value="12">Dec (12)</option>
+					</select>
+					<select class="form-control">
+						<option value="13">2013</option>
+            <option value="14">2014</option>
+            <option value="15">2015</option>
+            <option value="16">2016</option>
+            <option value="17">2017</option>
+            <option value="18">2018</option>
+            <option value="19">2019</option>
+            <option value="20">2020</option>
+            <option value="21">2021</option>
+            <option value="22">2022</option>
+            <option value="23">2023</option>
+					</select>
+        </div>
+        <div class="form-group">
+          <label for="">CVV</label>
+          <input type="text" class="form-control" placeholder="CVV">
+        </div> -->
+        <div class="form-group">
+            <label>Card Number</label>
+            <input type="text" class="form-control" placeholder="xxxx-xxxx-xxxx-xxxx">
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Exp Month</label>
+                    <input type="text" class="form-control" placeholder="MM">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Exp Year</label>
+                    <input type="text" class="form-control" placeholder="YYYY">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>CVC</label>
+                    <input type="text" class="form-control" placeholder="Ex. 331">
+                </div>
+            </div>
+        </div>
+      </form>
+    </div>
+      <div class="lite-pane--base">
+        <div class="col-sm-12 text-right controls">
+          <a ng-click="addPayment=false" class="btn btn-default">Cancel</a>
+          <a href="" class="btn btn-primary">Save</a>
+        </div>
+    </div>
+  </div>
+</div>

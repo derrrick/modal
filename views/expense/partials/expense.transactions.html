@@ -1,0 +1,294 @@
+<div ng-controller="ExpenseTransactCtrl">
+    <div class="secondary-navbar">
+        <div class="nav-project-select manager-view">
+
+        </div>
+        <ul class="list-unstyled nav-list">
+            <!--<li><a href="" class="active">Team</a></li>-->
+            <li><a href="" class="active">My Expenses</a></li>
+            <!--<li class="dropdown">-->
+                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Import <i class="flaticon solid down-1"></i></a>-->
+                <!--<ul class="dropdown-menu">-->
+                    <!--<li><a href="#">CSV</a></li>-->
+                    <!--<li><a href="#">XLS</a></li>-->
+                    <!--<li><a href="#">XXX</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        </ul>
+
+    </div>
+    <!-- /.secondary-navbar -->
+
+    <div class="content-area-w-l bottom-bar-fix">
+        <div class="content-wrap">
+
+            <div class="content-details">
+                <header>
+                    <span class="content-header-primary">Expenses</span>
+                    <!--<ul class="list-unstyled table-filters pull-right">-->
+                        <!--<li><a href="" class="active">All</a></li>-->
+                        <!--<li><a href="" class="">Pending</a></li>-->
+                        <!--<li><a href="" class="">Approved</a></li>-->
+                        <!--<li><a href="" class="">Declined</a></li>-->
+                        <!--<li><a href="" class="">Drafts</a></li>-->
+                    <!--</ul>-->
+                </header>
+                <table class="table standard striped">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th></th>
+                        <th></th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Name</th>
+                        <th>Merchant</th>
+                        <th>Date</th>
+                        <th>Note/Comments</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="expense in expensesList">
+                        <td><input type="checkbox"></td>
+                        <td>
+                            <div class="dot denied"></div>
+                        </td>
+                        <td><i class="flaticon solid paperclip-1"></i></td>
+                        <td>{{expense.category}}</td>
+                        <td>${{expense.amount}}</td>
+                        <td>{{expense.user}}</td>
+                        <td>{{expense.merchant}}</td>
+                        <td>{{expense.date}}</td>
+                        <td>{{expense.description}}</td>
+                    </tr>
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>-->
+                            <!--<div class="dot approved"></div>-->
+                        <!--</td>-->
+                        <!--<td></td>-->
+                        <!--<td>Travel</td>-->
+                        <!--<td>$42.30</td>-->
+                        <!--<td>John Caswasch</td>-->
+                        <!--<td>Shell Gas</td>-->
+                        <!--<td>6/01/14</td>-->
+                        <!--<td>Needed to refill on my way back from..</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>-->
+                            <!--<div class="dot approved"></div>-->
+                        <!--</td>-->
+                        <!--<td></td>-->
+                        <!--<td>Travel</td>-->
+                        <!--<td>$42.30</td>-->
+                        <!--<td>John Caswasch</td>-->
+                        <!--<td>Shell Gas</td>-->
+                        <!--<td>6/01/14</td>-->
+                        <!--<td>Needed to refill on my way back from..</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>-->
+                            <!--<div class="dot pending"></div>-->
+                        <!--</td>-->
+                        <!--<td><i class="flaticon solid paperclip-1"></i></td>-->
+                        <!--<td>Travel</td>-->
+                        <!--<td>$42.30</td>-->
+                        <!--<td>John Caswasch</td>-->
+                        <!--<td>Shell Gas</td>-->
+                        <!--<td>6/01/14</td>-->
+                        <!--<td>Needed to refill on my way back from..</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>-->
+                            <!--<div class="dot approved"></div>-->
+                        <!--</td>-->
+                        <!--<td><i class="flaticon solid paperclip-1"></i></td>-->
+                        <!--<td>Travel</td>-->
+                        <!--<td>$42.30</td>-->
+                        <!--<td>John Caswasch</td>-->
+                        <!--<td>Shell Gas</td>-->
+                        <!--<td>6/01/14</td>-->
+                        <!--<td>Needed to refill on my way back from..</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>-->
+                            <!--<div class="dot denied"></div>-->
+                        <!--</td>-->
+                        <!--<td><i class="flaticon solid paperclip-1"></i></td>-->
+                        <!--<td>Travel</td>-->
+                        <!--<td>$42.30</td>-->
+                        <!--<td>John Caswasch</td>-->
+                        <!--<td>Shell Gas</td>-->
+                        <!--<td>6/01/14</td>-->
+                        <!--<td>Needed to refill on my way back from..</td>-->
+                    <!--</tr>-->
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <!-- /.content-wrap -->
+        <div class="bottom-w-l control-bar-bottom text-right">
+            <ul class="list-unstyled controls">
+                <li><a href="#" class="circle-icon"><i class="flaticon solid paperclip-1"></i></a></li>
+                <li><a href="#" class="circle-icon"><i class="flaticon solid comment-2"></i></a></li>
+                <li><a href="#" class="circle-icon"><i class="flaticon solid trash-3"></i></a></li>
+            </ul>
+            <button class="btn btn-lrg btn-gray" ng-click="createNewExpense()">New Expense</button>
+            <!--<button class="btn btn-med btn-blue">Approve</button>-->
+        </div>
+    </div>
+    <!-- /.content-area-w-l -->
+</div>
+<!-- /.wrapper -->
+
+    <!--<div class="container-fluid">-->
+        <!--<div class="row top-options">-->
+            <!--<div class="form-group">-->
+                <!--<input class="form-control" placeholder="Search" ng-model="searchText">-->
+            <!--</div>-->
+            <!--<div class="col-xs-12">-->
+                <!--<a class="navbar-right btn--add btn btn-default" ng-click="addExpense=true">Add Expense</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.row &ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-6">-->
+                <!--<h4>PENDING</h4>-->
+                <!--<div class="card expense-card" ng-repeat="expense in expensesList | filter:searchText">-->
+                    <!--<div class="card--img">-->
+                        <!--<img src="http://placehold.it/45x45" class="img-circle"/>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<span class="card--amount">{{ expense.amount }}</span>-->
+                        <!--<ul class="card--info">-->
+                            <!--<li class="card--name">{{ expense.user_id }}</li>-->
+                            <!--<li class="card--vendor">{{ expense.name }}</li>-->
+                            <!--<li class="card--date">{{ expense.date | date:'longDate' }}</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="card expense-card">-->
+                    <!--<div class="card--img">-->
+                        <!--<img src="http://placehold.it/45x45" class="img-circle"/>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<span class="card--amount">$20.00</span>-->
+                        <!--<ul class="card--info">-->
+                            <!--<li class="card--name">Michael Frye</li>-->
+                            <!--<li class="card--vendor">CVS Pharmacy</li>-->
+                            <!--<li class="card--date">April 14, 2014</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="card expense-card">-->
+                    <!--<div class="card--img">-->
+                        <!--<img src="http://placehold.it/45x45" class="img-circle"/>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<span class="card--amount">$35.00</span>-->
+                        <!--<ul class="card--info">-->
+                            <!--<li class="card--name">Michael Frye</li>-->
+                            <!--<li class="card--vendor">Giant Food</li>-->
+                            <!--<li class="card--date">April 14, 2014</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+            <!--<div class="col-xs-6">-->
+                <!--<div class="expense-pane">-->
+                    <!--<div class="pane--details clearfix">-->
+                        <!--<div class="pane--img">-->
+                            <!--<img src="http://maps.googleapis.com/maps/api/staticmap?center=38.8619248,-77.0608602&zoom=14&size=150x150&maptype=roadmap-->
+<!--&markers=size:mid%7Ccolor:red%7C38.8619248,-77.0608602&sensor=false" class=""/>-->
+                        <!--</div>-->
+                        <!--<ul class="pane--info">-->
+                            <!--<li class="pane--name">Michael Frye</li>-->
+                            <!--<li class="pane--vendor">CVS Pharmacy</li>-->
+                            <!--<li class="pane--amount">$20.00</li>-->
+                            <!--<li class="card--date">April 14, 2014</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; ./details &ndash;&gt;-->
+                    <!--<div class="pane--other">-->
+                        <!--<hr/>-->
+                        <!--<span>Add category</span>-->
+                        <!--<hr/>-->
+                        <!--<span>Add a note</span>-->
+                        <!--<hr/>-->
+                        <!--<button class="btn btn-primary">Approve</button>-->
+                        <!--<button class="btn btn-default">Deny</button>-->
+                        <!--<button class="btn btn-default pull-right"><i class="glyphicon glyphicon-remove"></i></button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; ./row &ndash;&gt;-->
+
+        <!--<div ng-show="addExpense">-->
+            <!--<div class="lite-pane-wrap" ng-form="addExpenseForm">-->
+                <!--<div class="lite-pane downscroll">-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-xs-6">-->
+                            <!--<div class="form-group">-->
+                                <!--<label for="">Amount</label>-->
+                                <!--<input type="text" class="form-control" ng-model="amount" placeholder="$0.00">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-6">-->
+                            <!--<div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">-->
+                                <!--<label for="">Date</label>-->
+
+                                <!--<div class="input-group">-->
+                                    <!--<input type="text" class="form-control" ng-model="selectedDate" name="date"-->
+                                           <!--bs-datepicker>-->
+              		<!--<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; /.row &ndash;&gt;-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="">Merchant</label>-->
+                        <!--<input type="text" class="form-control" ng-model="merchant" placeholder="Merchant">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="">Note</label>-->
+                        <!--<input type="text" class="form-control" ng-model="note" placeholder="Note...">-->
+                    <!--</div>-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-xs-6">-->
+                            <!--<div class="form-group">-->
+                                <!--<label for="">Add category</label>-->
+                                <!--<select class="form-control">-->
+                                    <!--<option></option>-->
+                                    <!--<option>Cat 1</option>-->
+                                    <!--<option>Cat 2</option>-->
+                                    <!--<option>Cat 3</option>-->
+                                    <!--<option>Cat 4</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="lite-pane--base">-->
+                    <!--<div class="col-sm-12 text-right controls">-->
+                        <!--<a ng-click="addExpense=false" class="btn btn-default">Cancel</a>-->
+                        <!--<a type="submit" ng-click="" class="btn btn-primary">Submit</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!-- ./container -->
+<!--</div>-->
+

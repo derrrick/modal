@@ -1,0 +1,80 @@
+<div class="container-fluid" ng-controller="BusinessClientIdCtrl">
+    <div class="row">
+        <div class="col-xs-6">
+            <h2>{{client.name}}</h2>
+        </div>
+        <div class="col-xs-6 text-right">
+            <a class="btn btn-default btn-back" ui-sref="business.clients"><i
+                    class="glyphicon glyphicon-chevron-left"></i> Back to Clients</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-xs-6">
+                Additional info related to client<br/>
+                Like address<br/>
+                phone number<br/>
+                email address<br/>
+                etc etc etc<br/>
+            </div>
+            <div class="col-xs-6 text-right">
+                <a class="btn btn-default btn--add" ng-disabled="disableCreateProjectButton"
+                   ng-click="createNewProject()">Create Project</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <table class="table table--teams">
+                    <tr><th colspan="3">Projects</th></tr>
+                    <tbody>
+                    <tr ng-repeat="project in projectsList">
+                        <td><a ui-sref="business.projects_id({id: project.id})"
+                               ui-sref-opts="{relative: $state.$current}">{{project.name}}</a>
+                        </td>
+                        <td>{{project.count}} tasks</td>
+                        <td>
+                            <button class="btn btn-default" ng-click="removeRow($index)"
+                                    ng-disabled="project.name && disableCreateProjectButton"><i
+                                    class="fa fa-trash-o"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- ./row -->
+
+    <div id="#create-project" ng-show="createProjectPane">
+        <div class="lite-pane-wrap">
+            <div class="lite-pane downscroll">
+                <form class="form--panel" name="newProjectForm" novalidate>
+                    <div class="lite-pane downscroll">
+                        <div class="form-group" ng-class="{'has-error': newProjectForm.name.$invalid && submitted}">
+                            <label for="">Project Name</label>
+                            <input type="text" class="form-control" ng-model="project.name"
+                                   name="name"
+                                   placeholder="Project Name" ng-required="true">
+                        </div>
+                        <div class="form-group"
+                             ng-class="{'has-error': newProjectForm.approval_required.$invalid && submitted}">
+                            <label for="">Approval Required</label>
+                            <input type="checkbox" class="form-control" ng-model="project.approval_required"
+                                   name="approval_required">
+                        </div>
+                    </div>
+                    <div class="lite-pane--base">
+                        <div class="col-sm-12 text-right controls">
+                            <button ng-click="cancelCreateProject()" class="btn btn-default">Cancel</button>
+                            <button type="submit" ng-disabled="newProjectForm.$invalid"
+                                    ng-click="saveNewProject(project)"
+                                    class="btn btn-primary">Save
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<style>
+    .even {
+        background-color: #EEEEEE;
+    }
+</style>
+<div class="container" ng-controller="APITestCtrl">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            CrowdKeep API Tester
+        </div>
+    </div>
+    <div class="row" ng-repeat="test in tests" ng-class-even="'even'" style="padding: 8px; 0;">
+        <div class="col-lg-1 col-md-1">
+            <span ng-if="!test.result" class="alert alert-danger" style="padding:2px 10px;">FAIL</span>
+            <span ng-if="test.result" class="alert alert-success" style="padding:2px 10px;">PASS</span>
+        </div>
+        <div class="col-lg-5 col-md-5" style="word-wrap: break-word;">
+            <p>{{ test.name }}</p>
+
+            <p><strong>{{ test.output.config.method }}</strong> {{ test.output.config.url }}</p>
+
+            <p>Payload: {{ test.output.config.data }}</p>
+        </div>
+        <div class="col-lg-6 col-md-6" style="word-wrap: break-word;">
+            <p><strong>{{ test.output.status }}</strong></p>
+
+            <p>Response: {{ test.output.data }}</p>
+        </div>
+    </div>
+</div>

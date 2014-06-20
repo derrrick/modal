@@ -1,0 +1,89 @@
+<div ng-controller="UserLoginCtrl">
+    <div class="wrap-sign">
+        <div class="modal-small modal-sign">
+            <div class="modal-med-header text-center ck-logo">
+                <img src="img/crowdkeep-red.svg"/>
+            </div>
+            <div class="modal-med-body">
+                <form class="form-horizontal" role="form" name="loginForm">
+                    <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && submitted }">
+                        <div class="col-xs-12">
+                            <input type="email" class="form-control" id="inputFullName" placeholder="Username" name="email" ng-model="credentials.username" ng-required>
+                            <p ng-show="loginForm.email.$invalid && submitted" class="help-block">Client name is required.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && submitted }">
+                        <div class="col-xs-12">
+                            <input type="password" class="form-control" id="inputEmail" placeholder="Password" name="password" ng-model="credentials.password" ng-required>
+                            <p ng-show="loginForm.password.$invalid && submitted" class="help-block">Client name is required.</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-med-footer clearfix">
+                <div class="pull-left forgot"><a href="#">Forgot Password?</a></div>
+                <button type="submit" class="btn btn-med btn-blue pull-right" ng-click="login(credentials)">Login</button>
+            </div>
+        </div>
+
+        <div class="sign-bottom">
+            <p>No account yet? <a ui-sref="register">Sign Up</a></p>
+        </div>
+
+    </div>
+</div>
+
+<!--<section class="bg-gradient nonavbar">-->
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-lg-4 col-lg-offset-4">-->
+                <!--<form id="signup-form" name="loginForm" class="signup-form signup-container"-->
+                      <!--ng-submit="login(credentials)" ng-controller="UserLoginCtrl" novalidate>-->
+                    <!--<header>-->
+                        <!--<a href=""><img src="img/crowdkeep35.png"/></a>-->
+                    <!--</header>-->
+                    <!--<ul>-->
+                        <!--<li>-->
+                            <!--<div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && submitted }">-->
+                                <!--<label for="email-login">-->
+                                    <!--<span class="text-left">Email Address</span>-->
+                                <!--</label>-->
+                                <!--<input type="email" name="email" id="email-login" ng-model="credentials.username"-->
+                                       <!--class="form-control input-medium" ng-required="true "/>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<div class="form-group"-->
+                                 <!--ng-class="{ 'has-error' : loginForm.password.$invalid && submitted }">-->
+                                <!--<label for="password-login">-->
+                                    <!--<span class="text-left">Password</span>-->
+                                <!--</label>-->
+                                <!--<input type="password" name="password" id="password-login"-->
+                                       <!--ng-model="credentials.password" class="form-control" ng-required="true"-->
+                                       <!--ng-minlength="6" ng-maxlength="20"/>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <!--<div class="login-error" ng-show="loginFailed">-->
+                        <!--<p>The email and password combination you entered was incorrect.</p>-->
+                    <!--</div>-->
+                    <!--<div class="login-error" ng-show="formFailed">-->
+                        <!--<p>Please enter a valid email and password.</p>-->
+                    <!--</div>-->
+                    <!--<div class="signup-footer clearfix">-->
+                        <!--<button type="submit" class="btn btn-default" ng-disabled="disableLoginButton">Sign In</button>-->
+                        <!--<a ui-sref="forgot-password"><span class="pull-right form-subtext">forgot password?</span></a>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.row &ndash;&gt;-->
+        <!--<div class="row text-center">-->
+            <!--<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-lg-4 col-lg-offset-4">-->
+                <!--<a ui-sref="register" class="btn--create-acct">Create Account</a>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</section>-->
+<!--<ng-include src="'views/partials/footer.html'"></ng-include>-->

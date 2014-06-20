@@ -1,0 +1,131 @@
+<div ng-controller="AdminPositionsCtrl">
+    <div class="content-area-w-r bottom-bar-fix">
+        <div class="content-wrap">
+            <table class="striped standard table-positions">
+                <thead>
+                <tr>
+                    <th><!--<input type="checkbox"/>--></th>
+                    <th>Position</th>
+                    <th>Project</th>
+                    <th>Description</th>
+                    <th>Bill Rate</th>
+                    <th>Cost Rate</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="position in positionsList | orderBy: 'name' | filter:searchText">
+                    <td><input type="checkbox"></td>
+                    <td>{{position.name}}</td>
+                    <td>{{position.project_name}}</td>
+                    <td>{{position.description}}</td>
+                    <td>${{position.rate_billable}}/hr</td>
+                    <td>${{position.rate_cost}}/hr</td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td><input type="checkbox"/></td>-->
+                    <!--<td>Title of position</td>-->
+                    <!--<td></td>-->
+                    <!--<td>$19,830.43</td>-->
+                    <!--<td>$100/hr</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><input type="checkbox"/></td>-->
+                    <!--<td>Position</td>-->
+                    <!--<td></td>-->
+                    <!--<td>$16,173.21</td>-->
+                    <!--<td>$310/hr</td>-->
+                <!--</tr>-->
+                <!--<tr class="selected">-->
+                    <!--<td><input type="checkbox"/></td>-->
+                    <!--<td>Position name</td>-->
+                    <!--<td></td>-->
+                    <!--<td>$1,800,000.40</td>-->
+                    <!--<td>$60/hr</td>-->
+                <!--</tr>-->
+                <!--<tr class="selected">-->
+                    <!--<td><input type="checkbox"/></td>-->
+                    <!--<td>Title of position</td>-->
+                    <!--<td></td>-->
+                    <!--<td>$19,830.43</td>-->
+                    <!--<td>$100/hr</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><input type="checkbox"/></td>-->
+                    <!--<td>Position</td>-->
+                    <!--<td></td>-->
+                    <!--<td>$16,173.21</td>-->
+                    <!--<td>$310/hr</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><input type="checkbox"/></td>-->
+                    <!--<td>Position name</td>-->
+                    <!--<td></td>-->
+                    <!--<td>$1,800,000.40</td>-->
+                    <!--<td>$60/hr</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><input type="checkbox"/></td>-->
+                    <!--<td>Title of position</td>-->
+                    <!--<td></td>-->
+                    <!--<td>$19,830.43</td>-->
+                    <!--<td>$100/hr</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><input type="checkbox"/></td>-->
+                    <!--<td>Position</td>-->
+                    <!--<td></td>-->
+                    <!--<td>$16,173.21</td>-->
+                    <!--<td>$310/hr</td>-->
+                <!--</tr>-->
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /.content-full-width -->
+
+    <div class="bottom-w-r control-bar-bottom">
+        <ul class="list-unstyled controls">
+            <!--<li><a class="circle-icon"><i class="flaticon stroke add-user-1"></i></a></li>-->
+            <!--<li><a class="circle-icon"><i class="flaticon stroke compose-2"></i></a></li>-->
+            <!--&lt;!&ndash;<li><a class="circle-icon"><i class="flaticon stroke print-1"></i></a></li>&ndash;&gt;-->
+            <li><a class="circle-icon"><i class="flaticon solid trash-3"></i></a></li>
+        </ul>
+        <!--<button class="btn btn-med btn-blue pull-right">Export</button>-->
+        <button class="btn btn-med btn-gray pull-right" ng-click="createPosition()">Add New</button>
+    </div>
+
+    <div class="sb-right">
+        <div class="sb-right-wrap">
+            <div class="title">
+                Search Positions
+            </div>
+            <form role="form">
+                <div class="form-group">
+                    <input type="search" class="form-control filter-input" ng-model="searchText" placeholder="Search...">
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<input type="range" min="0" max="100"/>-->
+                <!--</div>-->
+                <div class="btn-wrap">
+                    <!--<button class="btn btn-action btn-gray btn-inactive">Save</button>-->
+                    <button class="btn btn-action btn-gray pull-right" ng-click="searchText = ''">Reset</button>
+                </div>
+            </form>
+            <hr/>
+            <!--<div class="sb-right-bottom">-->
+                <!--<div class="title">-->
+                    <!--<span>Saved</span>-->
+                    <!--<span class="pull-right"><a href="" class="clear-text">Clear</a></span>-->
+                <!--</div>-->
+                <!--<ul class="list-unstyled filters-saved">-->
+                    <!--<li><i class="flaticon solid star-2"></i>DEA</li>-->
+                    <!--<li><i class="flaticon solid star-2"></i>Top Secret</li>-->
+                    <!--<li><i class="flaticon solid star-2"></i>$20 - $40</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+        <!-- /.sb-right-wrap -->
+    </div>
+    <!-- /.sb-right -->
+</div>

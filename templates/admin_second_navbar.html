@@ -1,0 +1,23 @@
+<div class="wrapper">
+
+    <div class="secondary-navbar">
+        <div class="nav-project-select">
+            <!--<div class="title-large">-->
+                <!--{{ company.name }}-->
+            <!--</div>-->
+        </div>
+        <ul class="list-unstyled nav-list">
+            <li ng-repeat="menuItem in menuItems"><a ui-sref="{{menuItem.sref}}" ng-class="{active: highlightMenu(menuItem.sref)}">{{menuItem.name}}</a></li>
+            <!--<li class="dropdown">-->
+                <!--<a href="" class="dropdown-toggle" data-toggle="dropdown">Import <i class="flaticon solid down-1"></i></a>-->
+                <!--<ul class="dropdown-menu">-->
+                    <!--<li><a href="#">CSV</a></li>-->
+                    <!--<li><a href="#">XLS</a></li>-->
+                    <!--<li><a href="#">XXX</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        </ul>
+
+    </div>
+
+</div>

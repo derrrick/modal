@@ -1,0 +1,70 @@
+<div class="modal modal-expense" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-employee">
+        <div class="modal-content">
+            <div class="modal-header add-empl">
+                <a class="close-out" ng-click="cancelAssignUserToProject()"><i class="flaticon solid x-1"></i></a>
+                Assign Employee to Project
+            </div>
+            <div class="modal-body add-empl">
+
+                <form role="form" name="userAssignForm">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : userAssignForm.employeeName.$invalid && addSubmitted }">
+                                <label for="inputEmployeeName" class="col-sm-3 control-label">Employee:</label>
+                                <select ui-select2 class="" id="inputEmployeeName" data-placeholder="Select an employee" name="employeeName" ng-model="assignUser.user_id" ng-required="true">
+                                    <option value=""></option>
+                                    <option ng-repeat="user in usersList" value="{{user.id}}">{{user.full_name}}</option>
+                                </select>
+                                <p ng-show="userAssignForm.employeeName.$invalid && addSubmitted" class="help-block">Employee is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : userAssignForm.position.$invalid && addSubmitted }">
+                                <label for="inputPosition" class="col-sm-3 control-label">Position:</label>
+                                <select ui-select2 class="" id="inputPosition" data-placeholder="Select a position" name="position" ng-change="updateRates(assignUser.position_idx)" ng-model="assignUser.position_idx" ng-required="true">
+                                    <option value=""></option>
+                                    <option ng-repeat="position in positionsList" value="{{$index}}">{{position.name}}</option>
+                                </select>
+                                <p ng-show="userAssignForm.position.$invalid && addSubmitted" class="help-block">Position is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : userAssignForm.billRate.$invalid && addSubmitted }">
+                                <label for="inputPosition" class="col-xs-3 control-label">Billable:</label>
+                                <div class="col-xs-9">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" class="form-control" placeholder="Bill Rate" name="billRate" ng-model="assignUser.rate_billable" required>
+                                    <span class="input-group-addon">/hr</span>
+                                    <p ng-show="userAssignForm.billRate.$invalid && addSubmitted" class="help-block">Billable rate is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : userAssignForm.costRate.$invalid && addSubmitted }">
+                                <label for="inputPosition" class="col-sm-3 control-label">Position:</label>
+                                <div class="col-sm-9">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" class="form-control" placeholder="Cost Rate" name="costRate" ng-model="assignUser.rate_hourly" required>
+                                    <span class="input-group-addon">/hr</span>
+                                    <p ng-show="userAssignForm.costRate.$invalid && addSubmitted" class="help-block">Cost rate is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <hr/>
+            </div>
+            <div class="modal-footer add-empl">
+                <button class="btn btn-med btn-blue" ng-click="assignUserProject(assignUser)" ng-disabled="userAssignForm.$invalid">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

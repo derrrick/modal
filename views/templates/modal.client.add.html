@@ -1,0 +1,50 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-employee">
+        <div class="modal-content">
+            <div class="modal-header add-empl">
+                <a class="close-out" ng-click="cancelEditClient()"><i class="flaticon solid x-1"></i></a>
+
+                <div class="modal-avatar">
+                    <a href=""><img src="img/add-image.svg" class="img-circle"/></a>
+                </div>
+                <div class="modal-details">
+                    <ul class="list-unstyled">
+                        <li>Add New Client</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-body add-empl">
+                <form class="form-horizontal" role="form" name="clientAddForm">
+                    <div class="form-group" ng-class="{ 'has-error' : clientAddForm.clientName.$invalid && addSubmitted }">
+                        <label for="inputName" class="col-sm-3 control-label">Name:</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputName" placeholder="" name="clientName" ng-model="NewClient.name" required>
+                            <p ng-show="clientAddForm.clientName.$invalid && addSubmitted" class="help-block">Client name is required.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : clientAddForm.clientPhone.$invalid && addSubmitted }">
+                        <label for="inputPhone" class="col-sm-3 control-label">Phone:</label>
+
+                        <div class="col-sm-9">
+                            <input type="phone" class="form-control" id="inputPhone" placeholder="" name="clientPhone" ng-model="NewClient.phone" required>
+                            <p ng-show="clientAddForm.clientPhone.$invalid && addSubmitted" class="help-block">Client phone is required.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : clientAddForm.clientDescription.$invalid && addSubmitted }">
+                        <label for="inputDescription" class="col-sm-3 control-label">Description:</label>
+
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="inputDescription" name="clientDescription" ng-model="NewClient.description">
+                            </textarea>
+                        </div>
+                    </div>
+                </form>
+                <hr/>
+            </div>
+            <div class="modal-footer add-empl">
+                <button class="btn btn-med btn-blue" ng-click="saveNewClient(clientAddForm.$valid)">Add New</button>
+            </div>
+        </div>
+    </div>
+</div>

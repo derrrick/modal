@@ -1,0 +1,123 @@
+<div ng-controller="InvoiceInvoicesCtrl">
+    <div class="secondary-navbar">
+        <div class="nav-project-select manager-view">
+
+        </div>
+        <ul class="list-unstyled nav-list">
+            <!--<li ng-repeat="subnavitem in $parent.subnavmenuitems"><a ui-sref="{{subnavitem.sref}}" class="active">{{subnavitem.name}}</a></li>-->
+            <li><a class="active">Invoices</a></li>
+            <li><a >Recurring</a></li>
+            <li><a >Retainers</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Import <i class="flaticon solid down-1"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a >CSV</a></li>
+                    <li><a >XLS</a></li>
+                    <li><a >XXX</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <!-- /.secondary-navbar -->
+
+    <div class="content-area-w-l bottom-bar-fix">
+        <div class="content-wrap">
+
+            <div class="content-details">
+                <header>
+                    <span class="content-header-primary">Outstanding Invoices</span>
+                    <ul class="list-unstyled table-filters pull-right">
+                        <li><a class="active">All</a></li>
+                        <li><a class="">Sent</a></li>
+                        <li><a class="">Late</a></li>
+                        <li><a class="">Drafts</a></li>
+                    </ul>
+                </header>
+                <table class="table standard striped">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>ID</th>
+                        <th>Client</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Issued</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="invoice in invoicesList">
+                        <td><input type="checkbox"></td>
+                        <td>{{invoice.number}}</td>
+                        <td>{{invoice.client_name}}</td>
+                        <td>{{invoice.description}}</td>
+                        <td>{{invoice.status}}</td>
+                        <td>---</td>
+                        <td>${{invoice.amount}}</td>
+                    </tr>
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>000002</td>-->
+                        <!--<td>Client Two</td>-->
+                        <!--<td>Description overview of the invoice...</td>-->
+                        <!--<td>Draft</td>-->
+                        <!--<td>---</td>-->
+                        <!--<td>$812.30</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>000003</td>-->
+                        <!--<td>Client Three</td>-->
+                        <!--<td>Description overview of the invoice...</td>-->
+                        <!--<td>Draft</td>-->
+                        <!--<td>---</td>-->
+                        <!--<td>$812.30</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>000004</td>-->
+                        <!--<td>Client One</td>-->
+                        <!--<td>Description overview of the invoice...</td>-->
+                        <!--<td>Draft</td>-->
+                        <!--<td>---</td>-->
+                        <!--<td>$812.30</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>000005</td>-->
+                        <!--<td>Client Four</td>-->
+                        <!--<td>Description overview of the invoice...</td>-->
+                        <!--<td>Draft</td>-->
+                        <!--<td>---</td>-->
+                        <!--<td>$812.30</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <!--<td>000006</td>-->
+                        <!--<td>Client One</td>-->
+                        <!--<td>Description overview of the invoice...</td>-->
+                        <!--<td>Draft</td>-->
+                        <!--<td>---</td>-->
+                        <!--<td>$812.30</td>-->
+                    <!--</tr>-->
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <!-- /.content-wrap -->
+        <div class="bottom-w-l control-bar-bottom text-right">
+            <ul class="list-unstyled controls">
+                <li><a href="#" class="circle-icon"><i class="flaticon solid paperclip-1"></i></a></li>
+                <li><a href="#" class="circle-icon"><i class="flaticon solid comment-2"></i></a></li>
+                <li><a href="#" class="circle-icon"><i class="flaticon solid trash-3"></i></a></li>
+            </ul>
+            <button class="btn btn-lrg btn-gray">New Invoice</button>
+            <button class="btn btn-med btn-blue" disabled>Approve</button>
+        </div>
+    </div>
+    <!-- /.content-area-w-l -->
+</div>
+<!-- /.wrapper -->

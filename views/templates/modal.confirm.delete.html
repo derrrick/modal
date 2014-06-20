@@ -1,0 +1,35 @@
+<!--<div class="modal" tabindex="-1" role="dialog">-->
+  <!--<div class="modal-dialog">-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+        <!--<button type="button" class="close" ng-click="cancelDelete()">&times;</button>-->
+        <!--<h4 class="modal-title">Delete Task</h4>-->
+      <!--</div>-->
+      <!--<div class="modal-body">-->
+        <!--<p>Are you sure you want to delete? This action cannot be undone.</p>-->
+      <!--</div>-->
+      <!--<div class="modal-footer">-->
+        <!--<button type="button" class="btn btn-default" ng-click="cancelDelete()">Cancel</button>-->
+        <!--<button type="button" class="btn btn-danger" ng-click="confirmDelete()">Delete</button>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="modal modal-confirm" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-confirm-pane">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <!--<a class="close-out" ng-click="cancelDelete()"><i class="flaticon solid x-1"></i></a>-->
+
+                <div class="modal-confirm-text">
+                    Are you sure you want to delete <strong>{{toBeDeleted}}</strong>?
+                </div>
+                <button class="btn btn-med btn-gray" ng-click="cancelDelete()">No, Cancel</button>
+                <button class="btn btn-med btn-orange" ng-click="confirmDelete()">Yes, Delete</button>
+            </div>
+
+        </div>
+    </div>
+</div>

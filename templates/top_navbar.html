@@ -1,0 +1,82 @@
+<!-- main navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="img/logo2.png"/></a>
+    </div>
+    <div class="navbar-collapse collapse">
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <!--<a href="#" class="sb-icon"><i class="flaticon stroke zoom-2"></i></a>-->
+            </li>
+            <li><!--<a href="#">
+                <div class="notification-icon">
+                    <div class="indicator"></div>
+                    <span>1</span>
+                </div>
+            </a>-->
+            </li>
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle nav-user" data-toggle="dropdown"><img
+                        src="{{ user.image || 'img/temp/face02-30.jpg' }}" class="img-circle"/>{{ user.username }}<i
+                        class="flaticon solid down-1"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a ui-sref="admin">Admin</a></li>
+                    <!--<li><a href="#">Something Else</a></li>-->
+                    <li><a ui-sref="logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--/.nav-collapse -->
+</div>
+<!-- /.navbar -->
+<!-- main navbar -->
+<!--<div class="navbar navbar-default navbar-fixed-top" role="navigation">-->
+<!--<div class="navbar-header">-->
+<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
+<!--<span class="sr-only">Toggle navigation</span>-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--</button>-->
+<!--<a class="navbar-brand" href="#">-->
+<!--<img src="img/crowdkeep_logo_white.svg" class="ck-logo">-->
+<!--</a>-->
+<!--</div>-->
+<!--<div class="navbar-collapse collapse">-->
+<!--<ul class="nav navbar-nav">-->
+<!--<li class="dropdown">-->
+<!--<a href="#" class="dropdown-toggle nav-client" data-toggle="dropdown">Client's Name <i class="flaticon solid down-2"></i></a>-->
+<!--<ul class="dropdown-menu">-->
+<!--<li><a href="#">Client two</a></li>-->
+<!--<li><a href="#">Client three</a></li>-->
+<!--<li><a href="#">Client four</a></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+<!--<ul class="nav navbar-nav navbar-right">-->
+<!--<li><a href="#"><i class="flaticon stroke zoom-2"></i></a></li>-->
+<!--<li><a href="#">-->
+<!--<div class="notification-icon">-->
+<!--<div class="indicator"></div>-->
+<!--<span>13</span>-->
+<!--</div></a></li>-->
+<!--<li class="dropdown">-->
+<!--<a href="#" class="dropdown-toggle nav-user" data-toggle="dropdown"><img src="http://placehold.it/30x30" class="img-circle" /><span ng-if="user.full_name">{{user.full_name}}</span><span ng-if="!user.full_name">{{ user.email }}</span><i class="flaticon solid down-1"></i></a>-->
+<!--<ul class="dropdown-menu">-->
+<!--<li><a ui-sref="account.settings">Account Settings</a></li>-->
+<!--<li><a ui-sref="account.billing">Billing Settings</a></li>-->
+<!--<li><a ui-sref="logout">Logout</a></li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
+<!--</div>-->
+<!-- /.navbar -->

@@ -1,0 +1,9 @@
+<div class="navbar-secondary navbar-fixed-top">
+  <div class="container-fluid">
+      <a ng-repeat="subnavmenuitem in subNavMenuItems"
+         ui-sref="{{subnavmenuitem.sref}}"
+         ui-sref-active="active"
+         class="navbar-secondary-item">{{subnavmenuitem.name}}</a>
+      <a ng-repeat="button in subNavButtons" class="navbar-right add-time btn btn-default" ng-click="button.clickValue">{{button.name}}</a>
+  </div>
+</div>

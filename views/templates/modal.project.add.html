@@ -1,0 +1,68 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-employee">
+        <div class="modal-content">
+            <div class="modal-header add-empl">
+                <a class="close-out" ng-click="closeAddProject()"><i class="flaticon solid x-1"></i></a>
+                <div class="modal-details">
+                    <ul class="list-unstyled">
+                        <li>Add New Project</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-body add-empl">
+
+                <form class="form-horizontal" role="form" name="projectAddForm">
+                    <div class="form-group" ng-class="{ 'has-error' : projectAddForm.projectName.$invalid && addSubmitted }">
+                        <label for="inputProjectName" class="col-sm-4 control-label">Project:</label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputProjectName" placeholder="" name="projectName" ng-model="addProject.name" ng-required>
+                            <p ng-show="projectAddForm.clientName.$invalid && addSubmitted" class="help-block">Project name is required.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : projectAddForm.projectClient.$invalid && addSubmitted }">
+                        <label for="inputClientName" class="col-sm-4 control-label">Client:</label>
+
+                        <div class="col-sm-8">
+                            <select ui-select2 id="inputClientName" data-placeholder="Select a client" name="projectClient" ng-model="addProject.client_id" ng-required="true">
+                                <option value=""></option>
+                                <option ng-repeat="client in clientsList" value="{{client.client_id}}">{{client.name}}</option>
+                            </select>
+                            <p ng-show="projectAddForm.clientName.$invalid && addSubmitted" class="help-block">Client is required.</p>
+                        </div>
+                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<label for="inputRate" class="col-sm-4 control-label">Budget:</label>-->
+
+                        <!--<div class="col-sm-8">-->
+                            <!--<input type="text" class="form-control" id="inputBudget" placeholder="" name="">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="team-members-list">-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="inputRate" class="col-sm-4 control-label">Team:</label>-->
+
+                            <!--<div class="col-sm-8">-->
+                                <!--<input type="text" class="form-control" id="inputTeamMember" placeholder="">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-8 col-sm-offset-4">-->
+                            <!--<ul class="list-unstyled">-->
+                                <!--<li><img src="img/temp/face01-30.jpg" class="img-circle"/></li>-->
+                                <!--<li><img src="img/temp/face02-30.jpg" class="img-circle"/></li>-->
+                                <!--<li><img src="img/temp/face03-30.jpg" class="img-circle"/></li>-->
+                                <!--<li><img src="img/temp/face05-30.jpg" class="img-circle"/></li>-->
+                                <!--<li><img src="img/temp/face06-30.jpg" class="img-circle"/></li>-->
+                                <!--<li><img src="img/temp/face07-30.jpg" class="img-circle"/></li>-->
+                                <!--<li><img src="img/temp/face08-30.jpg" class="img-circle"/></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </form>
+            </div>
+            <div class="modal-footer add-empl">
+                <button class="btn btn-med btn-blue" ng-click="saveNewProject(projectAddForm.$valid, addProject)">Add New</button>
+            </div>
+        </div>
+    </div>
+</div>

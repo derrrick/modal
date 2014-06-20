@@ -1,0 +1,36 @@
+<div class="lite-pane downscroll aside">
+  <form role="form">
+    <div class="form-group">
+      <label for="">Task</label>
+      <input type="text" class="form-control" placeholder="Enter task">
+    </div>
+    <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}" ng-controller="DatepickerCtrl">
+      <label for="">Date</label>
+				<div class="input-group">
+          <input type="text" class="form-control" ng-model="selectedDate" name="date" bs-datepicker>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i>
+          </span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}" ng-controller="TimepickerCtrl">
+      	<label for="">Time In</label>
+        <div class="input-group">
+    		<input type="text" class="form-control" size="8" ng-model="time" name="time" bs-timepicker>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}" ng-controller="TimepickerCtrl">
+        <label for="">Time Out</label>
+        <div class="input-group">
+        <input type="text" class="form-control" size="8" ng-model="time" name="time" bs-timepicker>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+        </div>
+    </div>
+  </form>
+</div>
+  <div class="lite-pane--base">
+    <div class="col-sm-12 text-right controls">
+      <a ng-click="addTime=false" class="btn btn-default">Cancel</a>
+      <a href="" class="btn btn-primary">Save</a>
+    </div>
+</div>

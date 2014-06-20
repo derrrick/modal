@@ -1,0 +1,13 @@
+<div class="row report-container">
+    <div class="col-xs-3 list-group">
+      <a class="list-group-item"
+         ng-repeat="report in reportList"
+         ng-class="{active: report.selected}"
+         ui-sref="time.reports.report({report: report.name})"
+         ng-click="selectReport(reportList, report)">{{report.name}}</a>
+    </div>
+    <div class="col-xs-9">
+      <div ui-view></div>
+    </div>
+</div>
+<!-- /.row -->

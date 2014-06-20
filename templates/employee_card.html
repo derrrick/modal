@@ -1,0 +1,29 @@
+<li>
+    <div class="card-employee">
+        <div class="card-top clearfix">
+            <div class="card-avatar">
+                <img src="{{ empcard.image }}" class="img-circle" ng-if="empcard.image"/>
+                <img src="http://placehold.it/70x70" class="img-circle" ng-if="!empcard.image"/>
+            </div>
+            <div class="badge-admin" ng-if="empcard.admin">
+                Admin
+            </div>
+            <div class="card-details">
+                <ul class="list-unstyled">
+                    <li>{{ empcard.full_name }}</li>
+                    <li>{{ empcard.email }}</li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="card-bottom">
+            <ul class="list-unstyled">
+                <li>{{ empcard.status }}</li>
+                <li>{{ empcard.rate }}</li>
+                <li>{{ empcard.timezone }}</li>
+                <li>{{ empcard.status }}</li>
+            </ul>
+        </div>
+    </div>
+</li>
+<!-- /.card-employee -->

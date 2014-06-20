@@ -1,0 +1,149 @@
+<div class="modal modal-expense" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-employee">
+        <div class="modal-content">
+            <div class="modal-header add-empl">
+                <a class="close-out" ng-click="closeAddNewExpense()"><i class="flaticon solid x-1"></i></a>
+                Add New Expense
+            </div>
+            <div class="modal-body add-empl">
+
+                <form role="form" name="expenseAddForm">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : expenseAddForm.projectName.$invalid && addSubmitted }">
+                                <label for="inputProjectName" class="col-sm-3 control-label">Project:</label>
+                                <select ui-select2 class="form-control" id="inputProjectName" data-placeholder="Select a project" name="projectName" ng-model="project_id" ng-required="true">
+                                    <option value=""></option>
+                                    <option ng-repeat="project in projectsList" value="{{$index}}">{{project.name}}</option>
+                                </select>
+                                <p ng-show="expenseAddForm.projectName.$invalid && addSubmitted" class="help-block">Project is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group" ng-class="{ 'has-error' : expenseAddForm.expenseAmount.$invalid && addSubmitted }">
+                                <input type="number" class="form-control" placeholder="$0.00" name="expenseAmount" ng-model="newExpense.amount" required>
+                                <p ng-show="expenseAddForm.expenseAmount.$invalid && addSubmitted" class="help-block">Expense amount is required.</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="form-inline">
+                                    <select class="form-control" name="month" ng-model="receipt.month">
+                                        <option value="01">Jan</option>
+                                        <option value="02">Feb</option>
+                                        <option value="03">Mar</option>
+                                        <option value="04">Apr</option>
+                                        <option value="05">May</option>
+                                        <option value="06">Jun</option>
+                                        <option value="07">Jul</option>
+                                        <option value="08">Aug</option>
+                                        <option value="09">Sep</option>
+                                        <option value="10">Oct</option>
+                                        <option value="11">Nov</option>
+                                        <option value="12">Dec</option>
+                                    </select>
+                                    <select class="form-control" name="day" ng-model="receipt.day">
+                                        <option value="01">1</option>
+                                        <option value="02">2</option>
+                                        <option value="03">3</option>
+                                        <option value="04">4</option>
+                                        <option value="05">5</option>
+                                        <option value="06">6</option>
+                                        <option value="07">7</option>
+                                        <option value="08">8</option>
+                                        <option value="09">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                    <select class="form-control" name="year" ng-model="receipt.year">
+                                        <option values="2013">2013</option>
+                                        <option values="2014">2014</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : expenseAddForm.merchantName.$invalid && addSubmitted }">
+                                <input type="text" class="form-control" placeholder="Merchant Name" name="merchantName" ng-model="newExpense.merchant" required>
+                                <p ng-show="expenseAddForm.merchantName.$invalid && addSubmitted" class="help-block">Merchant name is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group" ng-class="{ 'has-error' : expenseAddForm.paymentType.$invalid && addSubmitted }">
+                                <select class="form-control" name="paymentType">
+                                    <option value="">Payment Type</option>
+                                    <option value="0">Direct Deposit</option>
+                                    <option value="1">Cash</option>
+                                </select>
+                            <p ng-show="expenseAddForm.paymentType.$invalid && addSubmitted" class="help-block">Payment type is required.</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group" ng-class="{ 'has-error' : expenseAddForm.category.$invalid && addSubmitted }">
+                                <select class="form-control" name="category" ng-model="newExpense.category">
+                                    <option value="">Category</option>
+                                    <option value="0">Travel</option>
+                                    <!--<option>3</option>-->
+                                    <!--<option>4</option>-->
+                                    <!--<option>5</option>-->
+                                </select>
+                                <p ng-show="expenseAddForm.category.$invalid && addSubmitted" class="help-block">Category is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : expenseAddForm.projectName.$invalid && addSubmitted }">
+                                <textarea class="form-control" rows="3" placeholder="Enter note here.." name="note" ng-model="newExpense.description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="attach-block text-center" file-dropzone="[image/png, image/jpeg, image/gif]"
+                                file="image" file-name="imageFileName" data-max-file-size="3">
+                                <i class="flaticon solid cloud-upload-1"></i>
+                                <p>Attach a Receipt</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </form>
+                <hr/>
+            </div>
+            <div class="modal-footer add-empl">
+                <button class="btn btn-med btn-blue" ng-click="saveNewExpense()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-lg-4 col-lg-offset-4">
+            <form name="wizardForm" class="signup-form signup-container" ng-submit="saveNewUser()"
+                  ng-controller="SetupWizardCtl" novalidate>
+                <header>
+                    <a href=""><img src="img/crowdkeep35.png"/></a>
+                </header>
+                <div class="container-fluid">
+                    <h1>Welcome to Crowdkeep</h1>
+                    <h4>Congratulations on creating a new account!</h4>
+                    <h4>We need to take care of a few settings together before we get started.</h4>
+                    <br>
+                    <h4>Please tell me a little more about yourself:</h4>
+
+                    <div class="form-group"
+                         ng-class="{'has-error': wizardForm.firstname.$error.required && submitted}">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" ng-model="newUser.first_name"
+                               placeholder="First Name" name="firstname" required>
+
+                        <p ng-show="wizardForm.firstname.$error.required && submitted"
+                           class="help-block">Please provide your first name.</p>
+                    </div>
+                    <div class="form-group"
+                         ng-class="{'has-error': wizardForm.lastname.$error.required && submitted}">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" ng-model="newUser.last_name" placeholder="Last Name"
+                               name="lastname" required>
+
+                        <p ng-show="wizardForm.lastname.$error.required && submitted"
+                           class="help-block">Please provide your last name.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" ng-model="newUser.phone" placeholder="Phone Number"
+                               name="phonenumber">
+                    </div>
+                    <div class="form-group" ng-show="projects.length > 1">
+                        <label>Select initial project</label>
+                        <select class="form-control" ng-model="newUser.project" name="project">
+                            <option ng-repeat="project in projects" value="project">{{ project.name }}</option>
+                        </select>
+                    </div>
+                    <div ng-if="projects.length == 1">
+                        <input type="hidden" value="projects[0]" ng-model="newUser.project" name="project">
+                    </div>
+                    <div class="col-sm-12 text-right controls">
+                        <button type="submit" class="btn btn-primary">Continue</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

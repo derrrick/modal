@@ -1,0 +1,65 @@
+<div class="modal modal-expense" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-employee">
+        <div class="modal-content">
+            <div class="modal-header add-empl">
+                <a class="close-out" ng-click="cancelCreatePosition()"><i class="flaticon solid x-1"></i></a>
+                Add New Position
+            </div>
+            <div class="modal-body add-empl">
+
+                <form role="form" name="positionAddForm">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : positionAddForm.positionName.$invalid && addSubmitted }">
+                                <label for="inputPositionName" class="col-sm-3 control-label">Name:</label>
+                                <input type="text" class="form-control" id="inputPositionName" placeholder="" name="positionName" ng-model="newPosition.name" ng-required>
+                                <p ng-show="positionAddForm.positionName.$invalid && addSubmitted" class="help-block">Position name is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : positionAddForm.projectName.$invalid && addSubmitted }">
+                                <label for="inputProjectName" class="col-sm-3 control-label">Project:</label>
+                                <select ui-select2 id="inputProjectName" data-placeholder="Select a project" name="projectName" ng-model="newPosition.project_id" ng-required="true">
+                                    <option value=""></option>
+                                    <option ng-repeat="project in projectsList" value="{{$index}}">{{project.name}}</option>
+                                </select>
+                                <p ng-show="positionAddForm.projectName.$invalid && addSubmitted" class="help-block">Project is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group" ng-class="{ 'has-error' : positionAddForm.billRate.$invalid && addSubmitted }">
+                                <input type="number" class="form-control" placeholder="Bill Rate" name="billRate" ng-model="newPosition.rate_billable" required>
+                                <p ng-show="positionAddForm.billRate.$invalid && addSubmitted" class="help-block">Expense amount is required.</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group" ng-class="{ 'has-error' : positionAddForm.costRate.$invalid && addSubmitted }">
+                                <input type="number" class="form-control" placeholder="Cost Rate" name="costRate" ng-model="newPosition.rate_cost" required>
+                                <p ng-show="positionAddForm.costRate.$invalid && addSubmitted" class="help-block">Expense amount is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group" ng-class="{ 'has-error' : positionAddForm.note.$invalid && addSubmitted }">
+                                <textarea class="form-control" rows="3" placeholder="Description..." name="note" ng-model="newPosition.description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </form>
+                <hr/>
+            </div>
+            <div class="modal-footer add-empl">
+                <button class="btn btn-med btn-blue" ng-click="saveNewPosition(newPosition)">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

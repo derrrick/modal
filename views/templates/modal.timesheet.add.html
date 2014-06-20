@@ -1,0 +1,36 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-employee">
+        <div class="modal-content">
+            <div class="modal-header add-empl">
+                <a class="close-out" ng-click="cancelAddRowToTimesheet()"><i class="flaticon solid x-1"></i></a>
+
+                <div class="modal-avatar">
+                    <img src="http://placehold.it/70x70" class="img-circle"/>
+                </div>
+                <div class="modal-details">
+                    <ul class="list-unstyled">
+                        <li>Add Timesheet Row</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-body add-empl">
+                <form class="form-horizontal" role="form" name="timesheetAddForm">
+                    <div class="form-group" ng-class="{ 'has-error' : timesheetAddForm.projectName.$invalid && addSubmitted }">
+                        <label for="inputProjectName" class="col-sm-3 control-label">Project:</label>
+                        <div class="col-sm-9">
+                            <select ui-select2 class="form-control" id="inputProjectName" data-placeholder="Select a project" name="projectName" ng-model="project_id" ng-required="true">
+                                <option value=""></option>
+                                <option ng-repeat="project in projectsList" value="{{$index}}">{{project.name}}</option>
+                            </select>
+                            <p ng-show="timesheetAddForm.projectName.$invalid && addSubmitted" class="help-block">Project is required.</p>
+                        </div>
+                    </div>
+                </form>
+                <hr/>
+            </div>
+            <div class="modal-footer add-empl">
+                <button class="btn btn-med btn-blue" ng-click="addRowToTimesheet(project_id)" ng-disabled="project_id == null">Add New</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="sb-left">
+    <div class="sb-left-wrap">
+        <div class="sb-left-top">
+            <!-- <button class="btn btn-lrg btn-orange">Create New <i class="flaticon solid down-2"></i></button> -->
+        </div>
+<!--         <hr/> -->
+        <div class="sb-left-2">
+            <ul class="list-unstyled">
+                <li ng-repeat="navmenuitem in navMenuItems"><a ui-sref="{{ navmenuitem.sref }}" ng-class="{active: highlightMenu(navmenuitem.sref)}"><i class="flaticon stroke inbox-3{{ navmenuitem.icon }}"></i> {{ navmenuitem.name }}</a></li>
+            </ul>
+        </div>
+        <!--<div class="sb-left-3">-->
+            <!--<hr/>-->
+            <!--<ul class="list-unstyled">-->
+                <!--<li><a href=""><i class="flaticon solid target-1"></i> Location</a></li>-->
+                <!--<li><a href=""><i class="flaticon solid running-1"></i> Dashboard</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+    <!-- /.sb-wrap -->
+
+    <div class="sb-left-bottom">
+        <ul class="list-unstyled">
+            <li><!--<a href="#"><i class="flaticon solid life-ring-1"></i> Support</a>--></li>
+        </ul>
+    </div>
+
+</div>
+<!--&lt;!&ndash; old side &ndash;&gt;-->
+<!--<div class="sb-left">-->
+    <!--<div class="sb-left-wrap">-->
+        <!--<div class="sb-left-top">-->
+            <!--<button class="btn btn-lrg btn-create" ng-click="">Create New</button>-->
+        <!--</div>-->
+        <!--<hr/>-->
+        <!--<div class="sb-left-2">-->
+            <!--<ul class="list-unstyled">-->
+                <!--<li ng-repeat="navmenuitem in navMenuItems"><a ui-sref="{{ navmenuitem.sref }}"><i class="flaticon {{ navmenuitem.icon }}"></i> {{ navmenuitem.name }}</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="sb-left-3">-->
+            <!--<hr/>-->
+            <!--<ul class="list-unstyled">-->
+                <!--<li><a href=""><i class="flaticon solid target-1"></i> Location</a></li>-->
+                <!--<li><a ui-sref="business"><i class="flaticon solid id-2"></i> Manage</a></li>-->
+                <!--<li><a href=""><i class="flaticon solid running-1"></i> Dashboard</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.sb-wrap &ndash;&gt;-->
+
+    <!--<div class="sb-left-bottom">-->
+        <!--<ul class="list-unstyled">-->
+            <!--<li><a href=""><i class="flaticon solid life-ring-1"></i> Get Help</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+<!--</div>-->
+<!-- /.sidebar-left -->

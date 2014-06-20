@@ -1,0 +1,334 @@
+<div ng-controller="AdminEmpIdCtrl">
+    <div class="content-navbar">
+        <div class="content-navbar-left">
+          <a ui-sref="admin.employees">Employees</a> <i class="flaticon solid right-1"></i> {{employee.full_name}}
+        </div>
+      </div>
+      <!-- /.content-navbar -->
+
+      <div class="content-area-w-r">
+        <div class="content-wrap">
+
+          <div class="content-details">
+            <header>
+              <span class="content-header-primary">Profile Details -</span> <span class="prim-blue">{{employee.full_name}}</span>
+              <ul class="list-unstyled pull-right">
+                <li><a ng-click="removeRow(employee.id)" class="circle-icon"><i class="flaticon solid trash-3"></i></a></li>
+              </ul>
+            </header>
+            <div class="content-details-main">
+              <div class="container">
+
+                <section class="content-section">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h4>Basic Information</h4>
+                      <div class="row">
+                        <div class="col-xs-3">
+                          <img src="{{'http://api.crowdkeep.com/v1/users/'+employee.id+'/picture' || 'img/temp/face03-90.jpg'}}" class="img-circle" />
+                          <p><a ng-click="changePicture()">Change picture</a></p>
+                        </div>
+                        <div class="col-xs-9">
+                          <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                              <label for="inputFirstName" class="col-sm-4 control-label">First Name:</label>
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputFirstName" placeholder="Molly" ng-model="employee.first_name" ng-blur="saveEmployee(employee)" required>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputLastName" class="col-sm-4 control-label">First Name:</label>
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputLastName" placeholder="Colello" ng-model="employee.last_name" ng-blur="saveEmployee(employee)" required>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputEmail" class="col-sm-4 control-label">Email Address:</label>
+                              <div class="col-sm-8">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="mollycolello@gmail.com" ng-model="employee.email" ng-blur="saveEmployee(employee)" required>
+                              </div>
+                            </div>
+                            <!--<div class="form-group">-->
+                              <!--<label for="" class="col-sm-4 control-label">Last Updated:</label>-->
+                              <!--<div class="col-sm-8">-->
+                                <!--March 04, 2014 - (via <a href="#">Mara Americano</a>)-->
+                              <!--</div>-->
+                            <!--</div>-->
+
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.row -->
+                </section>
+
+                <section class="content-section">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h4>Details</h4>
+                      <form role="form">
+                          <div class="row">
+                            <div class="col-xs-4">
+                              <div class="form-group">
+                                <label for="inputPhone">Phone</label>
+                                <input type="text" class="form-control" id="inputPhone" placeholder="202 867 5309" ng-model="employee.phone" ng-blur="saveEmployee(employee)" required>
+                              </div>
+                            </div>
+                            <!--<div class="col-xs-4">-->
+                              <!--<div class="form-group">-->
+                                <!--<label for="exampleInputEmail1">Address</label>-->
+                                <!--<input type="text" class="form-control" id="exampleInputEmail1" placeholder="21 Jump St.">-->
+                              <!--</div>-->
+                            <!--</div>-->
+                            <div class="col-xs-4">
+                              <div class="form-group">
+                                <label for="inputType">Type</label>
+                                  <select class="form-control" id="inputType" ng-model="employee.type" ng-blur="saveEmployee(employee)">
+                                    <option value="0">W2</option>
+                                    <option value="1">1099</option>
+                                    <option value="2">C2C</option>
+                                  </select>
+                              </div>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="form-group">
+                                <label for="inputStatus">Status</label>
+                                  <select class="form-control" id="inputStatus" ng-model="employee.status" ng-blur="saveEmployee(employee)">
+                                    <option value="0">Inactive</option>
+                                    <option value="1">Active</option>
+                                  </select>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /.row -->
+                          <!--<div class="row">-->
+                            <!--<div class="col-xs-4">-->
+                              <!--<div class="form-group">-->
+                                <!--<label for="exampleInputEmail1">Budget</label>-->
+                                <!--<input type="text" class="form-control" id="exampleInputEmail1" placeholder="$">-->
+                              <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-4">-->
+                              <!--<div class="form-group">-->
+                                <!--<label for="exampleInputEmail1">Client Name</label>-->
+                                <!--<input type="text" class="form-control" id="exampleInputEmail1" placeholder="">-->
+                              <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-4">-->
+                              <!--<div class="form-group">-->
+                                <!--<label for="exampleInputEmail1">Status</label>-->
+                                <!--<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Active">-->
+                              <!--</div>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                          <!--&lt;!&ndash; /.row &ndash;&gt;-->
+                          <!--<div class="row">-->
+                            <!--<div class="col-xs-8">-->
+                              <!--<label for="exampleInputEmail1">Description</label>-->
+                              <!--<textarea class="form-control" rows="3"></textarea>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                          <!-- /.row -->
+
+                      </form>
+                    </div>
+                  </div>
+                  <!-- /.row -->
+                </section>
+                <!--<section class="content-section">-->
+                  <!--<div class="row">-->
+                    <!--<div class="col-xs-12">-->
+                      <!--<table class="table table-profile">-->
+                        <!--<thead>-->
+                          <!--<tr>-->
+                            <!--<th>Timesheets</th>-->
+                            <!--<th>Week</th>-->
+                            <!--<th>Hours</th>-->
+                            <!--<th>Billable</th>-->
+                            <!--<th>Amount</th>-->
+                            <!--<th>Status</th>-->
+                          <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                          <!--<tr>-->
+                            <!--<td><img src="img/temp/face03-30.jpg" class="img-circle" />Molly Colello</td>-->
+                            <!--<td>Mar 02 - 08</td>-->
+                            <!--<td>45 Hrs</td>-->
+                            <!--<td>40 Hrs</td>-->
+                            <!--<td>$1,800.00</td>-->
+                            <!--<td>Approved</td>-->
+                          <!--</tr>-->
+                          <!--<tr>-->
+                            <!--<td><img src="img/temp/face03-30.jpg" class="img-circle" />Molly Colello</td>-->
+                            <!--<td>Mar 02 - 08</td>-->
+                            <!--<td>45 Hrs</td>-->
+                            <!--<td>40 Hrs</td>-->
+                            <!--<td>$1,800.00</td>-->
+                            <!--<td>Approved</td>-->
+                          <!--</tr>-->
+                          <!--<tr>-->
+                            <!--<td><img src="img/temp/face03-30.jpg" class="img-circle" />Molly Colello</td>-->
+                            <!--<td>Mar 02 - 08</td>-->
+                            <!--<td>45 Hrs</td>-->
+                            <!--<td>40 Hrs</td>-->
+                            <!--<td>$1,800.00</td>-->
+                            <!--<td>Approved</td>-->
+                          <!--</tr>-->
+                        <!--</tbody>-->
+                        <!--<tfoot>-->
+                          <!--<tr>-->
+                            <!--<td colspan="6"><a href="">View All</a></td>-->
+                          <!--</tr>-->
+                        <!--</tfoot>-->
+                      <!--</table>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--&lt;!&ndash; /.row &ndash;&gt;-->
+                <!--</section>-->
+                <!--<section class="content-section">-->
+                  <!--<div class="row">-->
+                    <!--<div class="col-xs-12">-->
+                      <!--<table class="table table-profile">-->
+                        <!--<thead>-->
+                          <!--<tr>-->
+                            <!--<th>Expenses</th>-->
+                            <!--<th>Date</th>-->
+                            <!--<th>Client</th>-->
+                            <!--<th>Type</th>-->
+                            <!--<th>Amount</th>-->
+                            <!--<th>Status</th>-->
+                          <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                          <!--<tr>-->
+                            <!--<td><img src="img/temp/face03-30.jpg" class="img-circle" />Molly Colello</td>-->
+                            <!--<td>April 14th</td>-->
+                            <!--<td>Client 2</td>-->
+                            <!--<td>Other</td>-->
+                            <!--<td>$108.83</td>-->
+                            <!--<td>Approved</td>-->
+                          <!--</tr>-->
+                          <!--<tr>-->
+                            <!--<td><img src="img/temp/face03-30.jpg" class="img-circle" />Molly Colello</td>-->
+                            <!--<td>May 23rd</td>-->
+                            <!--<td>Client 2</td>-->
+                            <!--<td>Meals</td>-->
+                            <!--<td>$73.94</td>-->
+                            <!--<td>Declined</td>-->
+                          <!--</tr>-->
+                          <!--<tr>-->
+                            <!--<td><img src="img/temp/face03-30.jpg" class="img-circle" />Molly Colello</td>-->
+                            <!--<td>June 18th</td>-->
+                            <!--<td>Client 3</td>-->
+                            <!--<td>Lodging</td>-->
+                            <!--<td>$321.32</td>-->
+                            <!--<td>Approved</td>-->
+                          <!--</tr>-->
+                        <!--</tbody>-->
+                        <!--<tfoot>-->
+                          <!--<tr>-->
+                            <!--<td colspan="6"><a href="">View All</a></td>-->
+                          <!--</tr>-->
+                        <!--</tfoot>-->
+                      <!--</table>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--&lt;!&ndash; /.row &ndash;&gt;-->
+                <!--</section>-->
+                <!--<section class="content-section">-->
+                  <!--<div class="row">-->
+                    <!--<div class="col-xs-12">-->
+                      <!--<h4>Notes</h4>-->
+                      <!--<ul class="media-list">-->
+                        <!--<li class="media">-->
+                          <!--<a class="pull-left" href="#">-->
+                            <!--<img class="media-object img-circle" src="img/temp/face05-30.jpg" />-->
+                          <!--</a>-->
+                          <!--<div class="media-body">-->
+                            <!--<h4 class="media-heading">Emma Hagymasi</h4>-->
+                            <!--<p>Sidonia Filotti has been working extremely hard the past few months. I would like to see her as a team lead within the next two months.</p>-->
+                            <!--<div class="media">-->
+                              <!--<a class="pull-left" href="#">-->
+                                <!--<img class="media-object img-circle" src="img/temp/face02-30.jpg" />-->
+                              <!--</a>-->
+                              <!--<div class="media-body">-->
+                                <!--<h4 class="media-heading">Molly Colello</h4>-->
+                                <!--<p>Sidonia Filotti has been working extremely hard the past few months. I would like to see her as a team lead within the next two months.</p>-->
+                              <!--</div>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                        <!--</li>-->
+                        <!--<li class="media">-->
+                          <!--<a class="pull-left" href="#">-->
+                            <!--<img class="media-object img-circle" src="img/temp/face08-30.jpg" />-->
+                          <!--</a>-->
+                          <!--<div class="media-body">-->
+                            <!--<h4 class="media-heading">Albert Bennett</h4>-->
+                            <!--<p>Sidonia Filotti has been working extremely hard the past few months. I would like to see her as a team lead within the next two months.</p>-->
+                          <!--</div>-->
+                        <!--</li>-->
+                      <!--</ul>-->
+                      <!--<form role="form">-->
+                        <!--<div class="form-group">-->
+                          <!--<textarea class="form-control" rows="3" placeholder="Enter your note..."></textarea>-->
+                        <!--</div>-->
+                        <!--<button class="btn btn-med btn-gray pull-right">Add Note</button>-->
+                      <!--</form>-->
+
+                    <!--</div>-->
+                  <!--</div>-->
+                  <!--&lt;!&ndash; /.row &ndash;&gt;-->
+                <!--</section>-->
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.content-wrap -->
+      </div>
+      <!-- /.content-area-w-r -->
+
+      <!--<div class="sb-right">-->
+        <!--<div class="sb-right-wrap">-->
+          <!--<div class="title">-->
+            <!--Find Employees-->
+          <!--</div>-->
+          <!--<form role="form">-->
+            <!--<div class="form-group">-->
+              <!--<input type="search" class="form-control filter-input" id="" placeholder="Search...">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<input type="text" class="form-control filter-input" id="" placeholder="Permissions">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<input type="text" class="form-control filter-input" id="" placeholder="Employee Type">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<input type="text" class="form-control filter-input" id="" placeholder="Positions">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<input type="range" min="0" max="100" />-->
+            <!--</div>-->
+            <!--<div class="btn-wrap">-->
+              <!--<button class="btn btn-action btn-gray btn-inactive">Save</button>-->
+              <!--<button class="btn btn-action btn-gray pull-right">Reset</button>-->
+            <!--</div>-->
+          <!--</form>-->
+          <!--<hr />-->
+          <!--<div class="sb-right-bottom">-->
+            <!--<div class="title">-->
+              <!--<span>Saved</span>-->
+              <!--<span class="pull-right"><a href="" class="clear-text">Clear</a></span>-->
+            <!--</div>-->
+            <!--<ul class="list-unstyled filters-saved">-->
+              <!--<li><i class="flaticon solid star-2"></i>John Johnson</li>-->
+              <!--<li><i class="flaticon solid star-2"></i>Jefferey Jefferson</li>-->
+              <!--<li><i class="flaticon solid star-2"></i>James Jameson</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+    <!-- /.wrapper -->
+</div>

@@ -1,0 +1,198 @@
+<div ng-controller="AdminEmpCtrl">
+    <div class="content-navbar">
+        <div class="add-new pull-left">
+            <a ng-click="openAddEmployee()">+ New Employee</a>
+        </div>
+        <div class="display-results">
+            Displaying {{ (employees|filter:searchText).length }} results
+        </div>
+        <div class="content-navbar-right">
+          <ul class="list-unstyled">
+            <li><a ng-click="switchListType()" ng-class="{active: (listStyle == 'cards')}"><i class="flaticon solid window-1"></i></a></li>
+            <li><a ng-click="switchListType()" ng-class="{active: (listStyle == 'list')}"><i class="flaticon solid menu-list-4"></i></a></li>
+          </ul>
+        </div>
+    </div>
+    <!-- /.content-navbar -->
+    <div class="content-area-w-r">
+        <div class="content-wrap" ng-switch="listStyle">
+            <ul ng-switch-when="cards" class="list-unstyled list-cards">
+                <li ng-repeat="empcard in employees | filter:searchText">
+                    <div class="card-employee">
+                        <div class="card-top clearfix">
+                            <div class="card-avatar">
+                                <img src="{{ 'http://api.crowdkeep.com/v1/users/'+empcard.id+'/picture' || 'img/temp/face08-70.jpg' }}" class="img-circle"/>
+                            </div>
+                            <div class="card-details">
+                                <ul class="list-unstyled">
+                                    <li>{{ empcard.full_name }}</li>
+                                    <li>{{ empcard.email }}</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="card-bottom clearfix">
+                            <ul class="list-unstyled card-bottom-left pull-left">
+                                <li>{{ empcard.status }}</li>
+                                <li></li>
+                                <li>{{ empcard.timezone || 'GMT - 5 (EST)' }}</li>
+                            </ul>
+                            <div class="card-bottom-right">
+                                <ul class="list-unstyled">
+                                    <li><a ui-sref="admin.employees_id({id: empcard.id})"><i class="flaticon stroke settings-1"></i></a></li>
+                                    <li><a ng-click="removeRow($index)"><i class="flaticon solid x-1"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-employee -->
+                </li>
+            </ul>
+            <table class="table-employees striped standard" ng-switch-when="list">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Time Zone</th>
+                    <th>Rate</th>
+                    <th>Type</th>
+                    <th>Role</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="empcard in employees | filter:searchText">
+                    <td>{{ empcard.full_name }}</td>
+                    <td>{{ empcard.email }}</td>
+                    <td>{{ empcard.timezone }}</td>
+                    <td>{{ empcard.rate }}</td>
+                    <td>{{ empcard.type }}</td>
+                    <td>Admin</td>
+                    <td class="actions">
+                        <ul class="list-unstyled">
+                            <li><a ng-click="removeRow($index)"><i
+                                    class="flaticon solid trash-3"></i></a></li>
+                            <li><a ui-sref="admin.employees_id({id: empcard.id})"><i class="flaticon stroke settings-1"></i></a></li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.content-wrap -->
+    </div>
+    <!-- /.content-area -->
+    <div class="sb-right">
+        <div class="sb-right-wrap">
+            <div class="title">
+                Find Employees
+            </div>
+            <form role="form">
+                <div class="form-group">
+                    <input type="search" class="form-control filter-input" ng-model="searchText" placeholder="Search...">
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<input type="text" class="form-control filter-input" placeholder="Permissions">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="text" class="form-control filter-input" placeholder="Employee Type">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="text" class="form-control filter-input" placeholder="Positions">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="range" min="0" max="100"/>-->
+                <!--</div>-->
+                <div class="btn-wrap">
+                    <!--<button class="btn btn-action btn-gray btn-inactive">Save</button>-->
+                    <button class="btn btn-action btn-gray pull-right" ng-click="searchText = ''">Reset</button>
+                </div>
+            </form>
+            <hr/>
+            <!--<div class="sb-right-bottom">-->
+                <!--<div class="title">-->
+                    <!--<span>Saved</span>-->
+                    <!--<span class="pull-right"><a href="" class="clear-text">Clear</a></span>-->
+                <!--</div>-->
+                <!--<ul class="list-unstyled filters-saved">-->
+                    <!--<li><i class="flaticon solid star-2"></i>John Johnson</li>-->
+                    <!--<li><i class="flaticon solid star-2"></i>Jefferey Jefferson</li>-->
+                    <!--<li><i class="flaticon solid star-2"></i>James Jameson</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+        <!-- /.sb-right-wrap -->
+    </div>
+    <!-- /.sb-right -->
+</div>
+<!-- OLD STUFF - HERE FOR REFERENCE ONLY -->
+<!--<div class="container-fluid" ng-controller="AdminEmpCtrl">-->
+    <!--<div class="row top-options">-->
+        <!--<div class="col-xs-4">-->
+            <!--<div class="form-group">-->
+                <!--<input class="form-control" placeholder="Search" ng-model="searchText">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-xs-6 col-xs-offset-2">-->
+            <!--<a class="navbar-right btn--add btn btn-default" ng-click="openAddEmployee()">Add Employee</a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.row &ndash;&gt;-->
+    <!--<div class="row">-->
+        <!--<div class="col-xs-4--emp" ng-repeat="employee in employees | filter:searchText">-->
+            <!--<div class="card employeecard" ng-click="viewEmployeeProfile(employee)">-->
+                <!--<div class="card--img">-->
+                    <!--<img gravatar-src="employee.email" src="http://placehold.it/80x80" size="80" secure="true"-->
+                         <!--class="img-circle"/>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<ul class="card--info">-->
+                        <!--<li class="card--name">{{employee.full_name}}</li>-->
+                        <!--<li class="card--position">{{employee.job_titles[0].name}}</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.row &ndash;&gt;-->
+    <!--<div id="addEmp" ng-show="addEmp">-->
+        <!--<div class="lite-pane-wrap">-->
+            <!--<form class="form--panel" name="newEmployeeForm" novalidate>-->
+                <!--<div class="lite-pane downscroll">-->
+                    <!--<div class="form-group" ng-class="{'has-error': addEmpForm.first_name.$invalid}">-->
+                        <!--<label for="">First Name</label>-->
+                        <!--<input type="text" class="form-control" ng-model="addEmployee.first_name"-->
+                               <!--name="first_name"-->
+                               <!--placeholder="First Name" ng-required="true">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="">Last Name</label>-->
+                        <!--<input type="text" class="form-control" ng-model="addEmployee.last_name"-->
+                               <!--name="last_name"-->
+                               <!--placeholder="Last Name" ng-required="true">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="">Phone Number</label>-->
+                        <!--<input type="text" class="form-control" ng-model="addEmployee.phone_number"-->
+                               <!--name="phone_number"-->
+                               <!--placeholder="Phone Number">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="">Email</label>-->
+                        <!--<input type="text" class="form-control" ng-model="addEmployee.email" name="email"-->
+                               <!--placeholder="Email">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="lite-pane--base">-->
+                    <!--<div class="col-sm-12 text-right controls">-->
+                        <!--<a ng-click="addEmp=false" class="btn btn-default">Cancel</a>-->
+                        <!--<a type="submit" ng-disabled="addEmpForm.$invalid" ng-click="saveNewEmployee()"-->
+                           <!--class="btn btn-primary">Save</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+

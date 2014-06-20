@@ -1,0 +1,182 @@
+<div ng-controller="AdminProjectCtrl">
+    <div class="content-navbar">
+        <div class="content-navbar-left">
+            <a ng-click="createProject()">+ New Project</a>
+        </div>
+        <div class="display-results">
+            <!--Displaying <strong>{{projectsList.length}} results</strong>-->
+        </div>
+        <div class="content-navbar-right">
+            <ul class="list-unstyled">
+                <!--<li><a href="#" class="active"><i class="flaticon solid window-1"></i></a></li>-->
+                <!--<li><a href="#"><i class="flaticon solid menu-list-4"></i></a></li>-->
+            </ul>
+        </div>
+    </div>
+    <!-- /.content-navbar -->
+
+    <div class="content-area-w-r">
+        <div class="content-wrap">
+            <ul class="list-unstyled">
+                <li ng-repeat="client in clientsList | orderBy: 'project_count' : true | filter:clientName ">
+                    <div class="content-area-header">
+                        {{client.name}} <span class="badge-number">{{client.project_count || 0}}</span>
+                    </div>
+                    <ul class="list-unstyled list-cards">
+                        <li ng-repeat="project in client.projects | orderBy: 'name' | filter:projectName">
+                            <div class="card-project">
+                                <div class="card-project-top">
+                                    <div class="card-project-name">
+                                        <a ui-sref="admin.projects_id({id: project.id})">{{project.name}}</a>
+                                    </div>
+                                    <div class="card-project-desc">
+                                        {{project.description || 'Description'}}
+                                    </div>
+                                    <ul class="list-unstyled inline">
+                                        <li><img src="img/temp/face01-30.jpg" class="img-circle"/></li>
+                                        <li><img src="img/temp/face03-30.gif" class="img-circle"/></li>
+                                        <li><img src="img/temp/face05-30.gif" class="img-circle"/></li>
+                                        <li><img src="img/temp/face07-30.jpg" class="img-circle"/></li>
+                                    </ul>
+                                    <ul class="list-unstyled inline card-project-info">
+                                        <li>{{project.count_user}} Employees</li>
+                                        <!--<li>*</li>-->
+                                        <!--<li>1 Admin</li>-->
+                                    </ul>
+                                </div>
+                                <div class="card-project-bottom clearfix">
+                                    <ul class="list-unstyled pull-left">
+                                        <li><a class="circle-icon" ng-click="removeRow($index)"><i
+                                                class="flaticon solid trash-3"></i></a></li>
+                                        <li><a ui-sref="admin.projects_id({id: project.id})" class="circle-icon"><i
+                                                class="flaticon stroke settings-1"></i></a></li>
+                                    </ul>
+                                    <button class="btn btn-med btn-blue pull-right" ui-sref="admin.projects_id({id: project.id})">View</button>
+                                </div>
+                            </div>
+                            <!-- /.card-project -->
+                        </li>
+                        <li>
+                            <div class="card-client-empty">
+                                <a ng-click="createProject()"><img src="img/add_client.png"/></a>
+
+                                <div>
+                                    <a ng-click="createProject()">Add New Project</a>
+                                </div>
+                            </div>
+                            <!-- /.card-client-empty -->
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.content-wrap -->
+    </div>
+    <!-- /.content-area-w-r -->
+    <div class="sb-right">
+        <div class="sb-right-wrap">
+            <div class="title">
+                Filter Projects
+            </div>
+            <form role="form">
+                <div class="form-group">
+                    <input type="search" class="form-control filter-input" placeholder="Project..." ng-model="projectName">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control filter-input" placeholder="Client..." ng-model="clientName">
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<input type="text" class="form-control filter-input" id="" placeholder="Employee Type">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="text" class="form-control filter-input" id="" placeholder="Positions">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="range" min="0" max="100"/>-->
+                <!--</div>-->
+                <div class="btn-wrap">
+                    <!--<button class="btn btn-action btn-gray btn-inactive">Save</button>-->
+                    <button class="btn btn-action btn-gray pull-right" ng-click="projectName = ''; clientName = ''">Reset</button>
+                </div>
+            </form>
+            <hr/>
+            <!--<div class="sb-right-bottom">-->
+                <!--<div class="title">-->
+                    <!--<span>Saved</span>-->
+                    <!--<span class="pull-right"><a href="" class="clear-text">Clear</a></span>-->
+                <!--</div>-->
+                <!--<ul class="list-unstyled filters-saved">-->
+                    <!--<li><i class="flaticon solid star-2"></i>John Johnson</li>-->
+                    <!--<li><i class="flaticon solid star-2"></i>Jefferey Jefferson</li>-->
+                    <!--<li><i class="flaticon solid star-2"></i>James Jameson</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+        <!-- /.sb-right-wrap -->
+    </div>
+    <!-- /.sb-right -->
+</div>
+<!-- /.wrapper -->
+<!--<div class="container-fluid">-->
+<!--<div class="row top-options">-->
+<!--<div class="col-xs-12">-->
+<!--<div class="form-group">-->
+<!--<input class="form-control" placeholder="Search" ng-model="searchText">-->
+<!--</div>-->
+<!--<a class="navbar-right btn--add btn btn-default" ng-click="createProject()"-->
+<!--ng-disabled="disableCreateProjectButton">Create Project</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; /.row &ndash;&gt;-->
+<!--<hr/>-->
+<!--<div class="row">-->
+<!--<div class="col-xs-12">-->
+<!--<table class="table table--teams">-->
+<!--<tbody>-->
+<!--<tr ng-repeat="project in projectsList | filter:searchText">-->
+<!--<td><a ui-sref="business.projects_id({id: project.id})"-->
+<!--ui-sref-opts="{relative: $state.$current}">{{project.name}}</a>-->
+<!--</td>-->
+<!--<td>{{project.count}} tasks</td>-->
+<!--<td>-->
+<!--&lt;!&ndash;<button class="btn btn-default" ng-click="assignUsers($index)" ng-disabled="disableCreateClientButton">Assign Users</button>&ndash;&gt;-->
+<!--</td>-->
+<!--<td>-->
+<!--<button class="btn btn-default" ng-click="removeRow($index)"-->
+<!--ng-disabled="project.name && disableCreateProjectButton"><i class="fa fa-trash-o"></i>-->
+<!--</button>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; /.row &ndash;&gt;-->
+<!--</div>-->
+<!--&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+<!--<div id="#create-project" ng-show="createProjectPane">-->
+<!--<div class="lite-pane-wrap">-->
+<!--<div class="lite-pane downscroll">-->
+<!--<form class="form--panel" name="newProjectForm" novalidate>-->
+<!--<div class="lite-pane downscroll">-->
+<!--<div class="form-group" ng-class="{'has-error': newProjectForm.name.$invalid && submitted}">-->
+<!--<label for="">Project Name</label>-->
+<!--<input type="text" class="form-control" ng-model="projectName"-->
+<!--name="name"-->
+<!--placeholder="Project Name" ng-required="true">-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="lite-pane--base">-->
+<!--<div class="col-sm-12 text-right controls">-->
+<!--<button ng-click="cancelCreateProject()" class="btn btn-default">Cancel</button>-->
+<!--<button type="submit" ng-disabled="newProjectForm.$invalid"-->
+<!--ng-click="saveNewProject(projectName)"-->
+<!--class="btn btn-primary">Save-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

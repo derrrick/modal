@@ -1,0 +1,86 @@
+<div class="container-fluid">
+	<div class="row top-options">
+		<div class="col-xs-2">
+			<div class="form-group">
+				<select class="form-control">
+				  <option>All</option>
+				  <option>Timesheet</option>
+				  <option>Expense</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-xs-3">
+      <div class="form-group">
+      <input class="form-control" placeholder="Search">
+  		</div>
+		</div>
+	</div>
+	<!-- ./row -->
+	<div class="row">
+		<div class="col-xs-12">
+			<table class="table table-hover table--inbox">
+				<tbody>
+					<tr ng-click="approvalPane=true">
+						<td><img src="http://placehold.it/50x50" class="img-circle" />
+						<td>Michael Frye</td>
+						<td>Group Name</td>
+						<td>Expense</td>
+						<td>
+							<button class="btn btn-primary">Approve</button>
+							<button class="btn btn-danger">Deny</button>
+						</td>
+					</tr>
+					<tr ng-click="approvalPane=true">
+						<td><img src="http://placehold.it/50x50" class="img-circle" />
+						<td>Chris Wiggins</td>
+						<td>Group Name</td>
+						<td>Timesheet</td>
+						<td>
+							<button class="btn btn-primary">Approve</button>
+							<button class="btn btn-danger">Deny</button>
+						</td>
+					</tr>
+					<tr ng-click="approvalPane=true">
+						<td><img src="http://placehold.it/50x50" class="img-circle" />
+						<td>Sina Khelil</td>
+						<td>Group Name</td>
+						<td>Expense</td>
+						<td>
+							<button class="btn btn-primary">Approve</button>
+							<button class="btn btn-danger">Deny</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- ./row -->
+	<div ng-show="approvalPane">
+		<div class="lite-pane-wrap">
+	    <form class="form--panel" name="newEmployeeForm" novalidate>
+        <div class="lite-pane downscroll">
+        	<div class="pane--details clearfix">
+						<div class="pane--img">
+							<img src="http://maps.googleapis.com/maps/api/staticmap?center=38.8619248,-77.0608602&zoom=14&size=150x150&maptype=roadmap
+	&markers=size:mid%7Ccolor:red%7C38.8619248,-77.0608602&sensor=false" class="" />
+						</div>
+						<ul class="pane--info">
+							<li class="pane--name">Michael Frye</li>
+							<li class="pane--vendor">CVS Pharmacy</li>
+							<li class="pane--amount">$20.00</li>
+							<li class="card--date">April 14, 2014</li>
+						</ul>
+					</div> <!-- ./details -->
+        </div>
+        <div class="lite-pane--base">
+            <div class="col-sm-12 text-right controls">
+            		<a class="btn btn-primary">Approve</a>
+            		<a class="btn btn-danger">Deny</a>
+                <a ng-click="approvalPane=false" class="btn btn-default">Cancel</a>
+            </div>
+        </div>
+	    </form>
+		</div>
+	</div>
+</div>
+<!-- ./container -->

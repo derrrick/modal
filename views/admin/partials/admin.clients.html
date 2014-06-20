@@ -1,0 +1,166 @@
+<div ng-controller="AdminClientCtrl">
+    <div class="content-navbar">
+        <div class="content-navbar-left">
+          <a ng-click="openAddClient()">+ New Client</a>
+        </div>
+        <div class="display-results">
+          Displaying <strong>{{(clientsList|filter:searchText).length}} results</strong>
+        </div>
+        <div class="content-navbar-right">
+          <ul class="list-unstyled">
+            <li><!--<a ng-click="switchListType()" ng-class="{active: (listStyle == 'cards')}"><i class="flaticon solid window-1"></i></a>--></li>
+            <li><!--<a ng-click="switchListType()" ng-class="{active: (listStyle == 'list')}"><i class="flaticon solid menu-list-4"></i></a>--></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.content-navbar -->
+
+      <div class="content-area-w-r">
+        <div class="content-wrap">
+          <ul class="list-unstyled list-cards">
+            <li ng-repeat="client in clientsList | orderBy: 'name' | filter: searchText">
+              <div class="card-client text-center">
+                <div class="card-client-settings">
+                  <a class="circle-icon" ng-click="editClient($index)"><i class="flaticon stroke settings-1"></i></a>
+                </div>
+                <img src="{{client.image || 'img/temp/client02.jpg'}}" class="img-circle center-block" />
+                <div class="card-client-name">
+                    {{client.name}}
+                </div>
+                <ul class="list-unstyled card-client-projects">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">{{client.project_count}} Projects <i class="flaticon solid down-1"></i></a>
+                    <ul class="dropdown-menu">
+                      <li ng-repeat="project in client.projects"><a ui-sref="admin.projects_id({id: project.id})">{{project.name}}</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.card-client -->
+            </li>
+            <li>
+              <div class="card-client-empty">
+                <a  ng-click="openAddClient()"><img src="img/add_client.png" /></a>
+                <div>
+                  <a  ng-click="openAddClient()">Add New Client</a>
+                </div>
+              </div>
+              <!-- /.card-client-empty -->
+
+            </li>
+          </ul>
+        </div>
+        <!-- /.content-area -->
+      </div>
+      <!-- /.content-wrap -->
+    <div class="sb-right">
+        <div class="sb-right-wrap">
+          <div class="title">
+            Search Clients
+          </div>
+          <form role="form">
+            <div class="form-group">
+              <input type="search" class="form-control filter-input" id="" ng-model="searchText" placeholder="Search...">
+            </div>
+            <!--<div class="form-group">-->
+              <!--<input type="text" class="form-control filter-input" id="" placeholder="Permissions">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<input type="text" class="form-control filter-input" id="" placeholder="Employee Type">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<input type="text" class="form-control filter-input" id="" placeholder="Positions">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<input type="range" min="0" max="100" />-->
+            <!--</div>-->
+            <div class="btn-wrap">
+              <!--<button class="btn btn-action btn-gray btn-inactive">Save</button>-->
+              <button class="btn btn-action btn-gray pull-right" ng-click="searchText = ''">Reset</button>
+            </div>
+          </form>
+          <hr />
+          <!--<div class="sb-right-bottom">-->
+            <!--<div class="title">-->
+              <!--<span>Saved</span>-->
+              <!--<span class="pull-right"><a href="" class="clear-text">Clear</a></span>-->
+            <!--</div>-->
+            <!--<ul class="list-unstyled filters-saved">-->
+              <!--<li><i class="flaticon solid star-2"></i>John Johnson</li>-->
+              <!--<li><i class="flaticon solid star-2"></i>Jefferey Jefferson</li>-->
+              <!--<li><i class="flaticon solid star-2"></i>James Jameson</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+        </div>
+        <!-- /.sb-right-wrap -->
+      </div>
+      <!-- /.sb-right -->
+    </div>
+    <!-- /.wrapper -->
+</div>
+<!--<div ng-controller="AdminClientCtrl">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="row top-options">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="form-group">-->
+                    <!--<input class="form-control" placeholder="Search" ng-model="searchText">-->
+                <!--</div>-->
+                <!--<a class="navbar-right btn--add btn btn-default" ng-click="createClient()"-->
+                   <!--ng-disabled="disableCreateClientButton">Create Client</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.row &ndash;&gt;-->
+        <!--<hr/>-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<table class="table table--teams">-->
+                    <!--<tbody>-->
+                    <!--<tr ng-repeat="client in clientsList | filter:searchText">-->
+                        <!--<td><a ui-sref="business.clients_id({id: client.id})"-->
+                               <!--ui-sref-opts="{relative: $state.$current}">{{client.name}}</a>-->
+                            <!--<input type="text" class="form-control input--team-name" ng-model="newClientName"-->
+                                   <!--ng-blur="createNewClient(newClientName)" ng-hide="client.name"-->
+                                   <!--placeholder="Enter new client name to create..."></td>-->
+                        <!--<td>{{client.count}} projects</td>-->
+                        <!--<td>-->
+                            <!--&lt;!&ndash;<button class="btn btn-default" ng-click="assignUsers($index)" ng-disabled="disableCreateClientButton">Assign Users</button>&ndash;&gt;-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--<button class="btn btn-default" ng-click="removeRow($index)"-->
+                                    <!--ng-disabled="client.name && disableCreateClientButton"><i class="fa fa-trash-o"></i>-->
+                            <!--</button>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.row &ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+    <!--<div id="#create-client" ng-show="createClientPane">-->
+        <!--<div class="lite-pane-wrap">-->
+            <!--<div class="lite-pane downscroll">-->
+                <!--<form class="form--panel" name="newClientForm" novalidate>-->
+                    <!--<div class="lite-pane downscroll">-->
+                        <!--<div class="form-group" ng-class="{'has-error': newClientForm.name.$invalid && submitted}">-->
+                            <!--<label for="">Client Name</label>-->
+                            <!--<input type="text" class="form-control" ng-model="clientName"-->
+                                   <!--name="name"-->
+                                   <!--placeholder="Client Name" ng-required="true">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="lite-pane--base">-->
+                        <!--<div class="col-sm-12 text-right controls">-->
+                            <!--<button ng-click="cancelCreateClient()" class="btn btn-default">Cancel</button>-->
+                            <!--<button type="submit" ng-disabled="newClientForm.$invalid"-->
+                                    <!--ng-click="saveNewClient(clientName)"-->
+                                    <!--class="btn btn-primary">Save-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

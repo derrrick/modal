@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>icon-crowdkeep32x32</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs>
+        <path d="M2.67547395,12.1130476 C2.23670542,13.4969849 2,14.9708497 2,16.5 C2,20.910648 3.96930287,24.8613404 7.07660342,27.520772 M15.2533223,30.9471549 C15.6642331,30.9821458 16.0800315,31 16.5,31 C24.5081293,31 31,24.5081293 31,16.5 C31,8.49187073 24.5081293,2 16.5,2 C12.625605,2 9.1061206,3.51955176 6.50500915,5.99519283" id="path-1"></path>
+        <path d="M5.20884026,14.3070627 C5.07177865,15.0169466 5,15.7500909 5,16.5 C5,17.6586274 5.17134263,18.7772355 5.4900713,19.8318677 M11.4014076,26.8108256 C12.9379633,27.5720926 14.6690101,28 16.5,28 C20.8714384,28 24.6731981,25.5609168 26.6186105,21.9694192 M27.8007866,18.6424685 C27.9315805,17.9483225 28,17.2321514 28,16.5 C28,10.1487251 22.8512749,5 16.5,5 C14.9216805,5 13.4176237,5.31795652 12.0483887,5.89331061" id="path-2"></path>
+        <path id="path-3" d="M22.7534692,10.7428401 C21.2001679,9.05649538 18.9734629,8 16.5,8 C11.8055794,8 8,11.8055794 8,16.5 C8,21.1944206 11.8055794,25 16.5,25 C19.3773033,25 21.920695,23.5703554 23.4585787,21.3826627"></path>
+        <circle id="path-4" cx="16.5" cy="16.5" r="5.5"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Oval-1">
+            <use stroke="#3399D2" stroke-width="1.5" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+            <use stroke="none" xlink:href="#path-1"></use>
+        </g>
+        <g id="Oval-1-copy">
+            <use stroke="#3399D2" stroke-width="1.5" sketch:type="MSShapeGroup" xlink:href="#path-2"></use>
+            <use stroke="none" xlink:href="#path-2"></use>
+        </g>
+        <g id="Oval-1-copy-2">
+            <use stroke="#3399D2" stroke-width="1.5" sketch:type="MSShapeGroup" xlink:href="#path-3"></use>
+            <use stroke="none" xlink:href="#path-3"></use>
+        </g>
+        <g id="Oval-1-copy-3">
+            <use stroke="#3399D2" stroke-width="1.5" sketch:type="MSShapeGroup" xlink:href="#path-4"></use>
+            <use stroke="none" xlink:href="#path-4"></use>
+        </g>
+    </g>
+</svg>
